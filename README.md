@@ -7,6 +7,7 @@ You can manually test the application being deployed by running the docker image
 
 # Get readiness state 
 - curl --location 'localhost:80/actuator/health/readiness' --header 'Accept: application/json'
+- curl --location 'localhost:80/spring/test' --header 'Accept: application/json' --header 'Content-Type: application/json'
 
 # Post data to validation endpoint
 - curl --location 'localhost:80/spring/validate' --header 'Accept: application/json' --header 'Content-Type: application/json' --data '{"rego": "some rego"}'
