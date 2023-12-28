@@ -1,0 +1,24 @@
+# Ignore IDE directories
+.idea
+
+# Ignore scratch directory
+.scratch
+
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,helm
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,helm
+
+### Helm ###
+# Chart dependencies
+**/charts/*.tgz
+
+### VisualStudioCode ###
+.vscode/*
+**/.DS_Store
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
