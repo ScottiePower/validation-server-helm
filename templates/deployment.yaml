@@ -61,6 +61,22 @@ spec:
         - name: sidecar
           image: "{{ .Values.sidecarImage.repository }}:{{ .Values.sidecarImage.tag }}"
           imagePullPolicy: {{ .Values.sidecarImage.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8071
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: 8071
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8071
+            initialDelaySeconds: 3
+            periodSeconds: 3
       {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
