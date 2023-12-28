@@ -8,7 +8,13 @@ image:
   repository: zimmy71/validation-server
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "20232712.043825"
+  tag: "20232812.032720"
+
+sidecarImage:
+  repository: zimmy71/sidecar
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "20231228.142335"
 
 imagePullSecrets: []
 nameOverride: ""

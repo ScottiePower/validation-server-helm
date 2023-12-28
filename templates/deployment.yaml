@@ -40,22 +40,25 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /actuator/health/liveness
-              port: http
-            failureThreshold: 6
-          readinessProbe:
-            httpGet:
-              path: /actuator/health/readiness
-              port: http
-            failureThreshold: 6
+{{/*          livenessProbe:*/}}
+{{/*            httpGet:*/}}
+{{/*              path: /actuator/health/liveness*/}}
+{{/*              port: http*/}}
+{{/*            failureThreshold: 6*/}}
+{{/*          readinessProbe:*/}}
+{{/*            httpGet:*/}}
+{{/*              path: /actuator/health/readiness*/}}
+{{/*              port: http*/}}
+{{/*            failureThreshold: 6*/}}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+        - name: sidecar
+          image: "{{ .Values.sidecarImage.repository }}:{{ .Values.sidecarImage.tag }}"
+          imagePullPolicy: {{ .Values.sidecarImage.pullPolicy }}
       {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}

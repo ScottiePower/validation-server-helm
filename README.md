@@ -15,9 +15,8 @@ You can manually test the application being deployed by running the docker image
 # Helm commands
 - with in project root directory run: helm install validation-server-helm .
 - Get the application URL by running these commands:
-  export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services validation-server-helm)
+  export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services validation-server-helm-mainapp)
   export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
-  echo http://$NODE_IP:$NODE_PORT
-- Use the ip address in the curl commands.
+- Use the ip address port in the curl commands.
   curl --location $NODE_IP:$NODE_PORT/actuator/health/readiness --header 'Accept: application/json'
   curl --location $NODE_IP:$NODE_PORT/spring/validate --header 'Accept: application/json' --header 'Content-Type: application/json' --data '{"rego": "some rego"}'
