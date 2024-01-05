@@ -46,6 +46,7 @@ spec:
               port: 8080
             initialDelaySeconds: 10
             periodSeconds: 10
+            timeoutSeconds: 10
             failureThreshold: 30
           livenessProbe:
             httpGet:
@@ -53,6 +54,7 @@ spec:
               port: 8080
             initialDelaySeconds: 6
             periodSeconds: 10
+            timeoutSeconds: 10
             failureThreshold: 5
           readinessProbe:
             httpGet:
@@ -60,6 +62,7 @@ spec:
               port: 8080
             initialDelaySeconds: 6
             periodSeconds: 10
+            timeoutSeconds: 10
             failureThreshold: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
